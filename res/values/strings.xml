@@ -1,5 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
 <resources>
-    <string name="hello">Hello World, Main_Activity!</string>
+    <string name="hello">Event &amp; Weather</string>
     <string name="app_name">CityUni</string>
+    <string name ="event_source">www.city.ac.uk/whatson/rss/events.xml</string>
+    <string name ="phone_source"> http://www.city.ac.uk/city/cgi-bin/phone.cgi</string>
+    <string name ="email_source"> http://www.city.ac.uk/city/cgi-bin/email.pl</string>
+    <string name ="weather_source">http://weather.yahooapis.com/forecastrss?w=44418&amp;u=c</string>
+    
 </resources>
