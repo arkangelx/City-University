@@ -1,5 +1,6 @@
 package com.informatics.finals;
 
+
 import android.app.Activity;
 import android.os.Bundle;
 
@@ -10,4 +11,4 @@ public class Main_Activity extends Activity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.main);
     }
-}/***********/
+}
