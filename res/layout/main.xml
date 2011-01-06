@@ -4,26 +4,35 @@
 	android:layout_height="wrap_content" android:background="@drawable/background_towers_four_one_one">
 
 	<ImageView android:src="@drawable/city_logo"
+	android:id="@+id/city_logo"
 		android:layout_width="fill_parent" android:layout_height="wrap_content" />
 		
-	<ImageView 
-		android:layout_width="fill_parent" android:layout_height="wrap_content"
-		android:layout_alignParentBottom="true"
-		android:background="@drawable/rsz_default_twice_size"
-		/>
-
 	
+	<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
+	android:orientation="vertical"
+	android:layout_width="fill_parent"
+	android:layout_height="wrap_content"
+	android:layout_below="@+id/city_logo"
+	>
 
 		<ScrollView android:layout_width="fill_parent"
 			android:layout_height="wrap_content" xmlns:android="http://schemas.android.com/apk/res/android">
 			<TextView android:id="@+id/mytextview" android:layout_width="fill_parent"
 				android:layout_height="fill_parent" android:isScrollContainer="true"
-				android:gravity="center" android:text="Just so I know you are there" 
-				android:layout_gravity="center_vertical"/>
+				android:gravity="center" android:text="It works now mate!" 
+				android:layout_gravity="center_vertical"
+				android:textSize="15px"
+				/>
 
 		</ScrollView>
+		</LinearLayout>
 	
 
+	<ImageView 
+		android:layout_width="fill_parent" android:layout_height="wrap_content"
+		android:layout_alignParentBottom="true"
+		android:background="@drawable/rsz_default_twice_size"
+		/>
 
 
 
