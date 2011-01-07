@@ -1,149 +1,145 @@
 package com.informatics.finals.objects;
 
-import android.content.Context;
-
-
-
-
 import android.os.Bundle;
 
 public class Event {
 
-    private String _jobid = "";
-    private String _status = "";
-    private String _customer = "";
-    private String _identifier = "";
-    private String _address = "";
-    private String _city = "";
-    private String _state = "";
-    private String _zip = "";
-    private String _product = "";
-    private String _producturl = "";
-    private String _comments = "";
-/******************************************************************To Complete********************************************************/
+    private String title = "";
+    private String  description = "";
+    private String 	link = "";
+    private String  category = "";
+    private String  location  = "";
+    private String dateStart = "";
+    private String dateEnd = "";
+    private String datePartStart ="";
+    private String timePartStart ="";
+    private String datePartEnd = "";
+    private String timePartEnd = "";
 
-    public String get_jobid() {
-        return this._jobid;
+    public String get_Title() {
+        return this.title;
     }
 
-    public void set_jobid(String jobid) {
-        this._jobid = jobid;
+    public void set_Title(String title) {
+        this.title = title;
     }
 
-    public String get_customer() {
-        return this._customer;
+    public String get_Description() {
+        return this.description;
     }
 
-    public void set_customer(String _customer) {
-        this._customer = _customer;
+    public void set_Description(String description) {
+        this.description = description;
     }
 
-    public String get_status() {
-        return this._status;
+    public String get_Link() {
+        return this.link;
     }
 
-    public void set_status(String _status) {
-        this._status = _status;
+    public void set_Link(String link) {
+        this.link = link;
     }
 
-    public String get_identifier() {
-        return this._identifier;
+    public String get_Category() {
+        return this.category;
     }
 
-    public void set_identifier(String _identifier) {
-        this._identifier = _identifier;
+    public void set_Category(String category) {
+        this.category = category;
     }
 
-    public String get_address() {
-        return this._address;
+    public String get_Location() {
+        return this.location;
     }
 
-    public void set_address(String _address) {
-        this._address = _address;
+    public void set_Location(String location) {
+        this.location = location;
     }
 
-    public String get_city() {
-        return this._city;
+    public String get_DateStart() {
+        return this.dateStart;
     }
 
-    public void set_city(String _city) {
-        this._city = _city;
+  
+    public void set_DateStart(String dateStart) {
+        this.dateStart = dateStart;
     }
 
-    public String get_state() {
-        return this._state;
+    
+
+    public void set_DatePartStart(String datePartStart) {
+        this.datePartStart = dateStart.substring(0, 7);
     }
 
-    public void set_state(String _state) {
-        this._state = _state;
+    public String get_DateEnd() {
+        return this.dateEnd;
     }
 
-    public String get_zip() {
-        return this._zip;
+    public String get_DatePartStart() {
+        return this.dateEnd;
     }
 
-    public void set_zip(String _zip) {
-        this._zip = _zip;
+    public void set_DatePartEnd(String datePartEnd) {
+        this.datePartEnd = datePartEnd;
+    }
+   
+    public void set_DateEnd(String dateEnd) {
+        this.dateEnd =  this.dateEnd.substring(0,7);
     }
 
-    public String get_product() {
-        return this._product;
+    public String get_TimePartStart() {
+        return this.timePartStart;
     }
 
-    public void set_product(String _product) {
-        this._product = _product;
+    public void set_TimePartStart(String timePartStart) {
+        this.timePartStart = this.datePartStart.substring(9,12);
+    }
+    
+    
+    public String get_TimePartEnd() {
+        return this.timePartEnd;
     }
 
-    public String get_producturl() {
-        return this._producturl;
+    public void set_TimePartEnd(String timePartEnd) {
+        this.timePartEnd = this.timePartEnd.substring(9,12);
     }
 
-    public void set_producturl(String _producturl) {
-        this._producturl = _producturl;
-    }
-
-    public String get_comments() {
-        return this._comments;
-    }
-
-    public void set_comments(String _comments) {
-        this._comments = _comments;
-    }
 
     @Override
     public String toString() {
-        return this._jobid + ": " + this._customer + ": " + this._product;
+        return "";
     }
 
 
     public Bundle toBundle() {
         Bundle b = new Bundle();
-        b.putString("jobid", this._jobid);
-        b.putString("status", this._status);
-        b.putString("customer", this._customer);
-        b.putString("address", this._address);
-        b.putString("city", this._city);
-        b.putString("state", this._state);
-        b.putString("zip", this._zip);
-        b.putString("product", this._product);
-        b.putString("producturl", this._producturl);
-        b.putString("comments", this._comments);
+       
+        b.putString("title", this.title);
+        b.putString("description", this.description);
+        b.putString("link", this.link);
+        b.putString("category", this.category);
+        b.putString("location", this.location);
+         b.putString("datePartStart", this.datePartStart);
+         b.putString("datePartEnd", this.datePartEnd);
+         b.putString("timePartStart", this.timePartStart);
+         b.putString("timePartEnd", this.timePartEnd);
+        
 
         return b;
     }
 
     public static Event fromBundle(Bundle b) {
-        Event  je = new Event();
-        je.set_jobid(b.getString("jobid"));
-        je.set_status(b.getString("status"));
-        je.set_customer(b.getString("customer"));
-        je.set_address(b.getString("address"));
-        je.set_city(b.getString("city"));
-        je.set_state(b.getString("state"));
-        je.set_zip(b.getString("zip"));
-        je.set_product(b.getString("product"));
-        je.set_producturl(b.getString("producturl"));
-        je.set_comments(b.getString("comments"));
-        return je;
+        Event event = new Event();
+        event.set_Title(b.getString("title"));
+        event.set_Description(b.getString("description"));
+        event.set_Link(b.getString("link"));
+        event.set_Category(b.getString("category"));
+        event.set_Location(b.getString("location"));
+        event.set_DatePartStart(b.getString("datePartStart"));
+        event.set_DatePartEnd(b.getString("datePartEnd"));
+        event.set_TimePartStart(b.getString("timePartStart"));
+        event.set_TimePartEnd(b.getString("timePartEnd"));
+
+        return event;
     }
 }

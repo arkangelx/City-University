@@ -22,6 +22,7 @@ public class XmlHandler extends DefaultHandler{
 	private WeatherEntry_List weatherList;
 	private Event_List eventList;
 	private Event event;
+	private StringBuilder sb;
 	/*********************************************Not Complete***************************************/
 	
 	public XmlHandler(Context c, Handler handler){
@@ -57,13 +58,7 @@ public class XmlHandler extends DefaultHandler{
 		return eventList;
 	}
 
-	@Override
-	public void characters(char[] ch, int start, int length)
-			throws SAXException {
-		// TODO Auto-generated method stub
-		super.characters(ch, start, length);
-	}
-
+	
 	@Override
 	public void endDocument() throws SAXException {
 		// TODO Auto-generated method stub
@@ -89,46 +84,36 @@ public class XmlHandler extends DefaultHandler{
             return;
         }
 
-        if (localName.equals("id")) {
-           // this.event_job.set_jobid(this.sb.toString());
+        if (localName.equals("title")) {
+            this.event.set_Title(this.sb.toString());
             return;
         }
-        if (localName.equals("status")) {
-          //  this._job.set_status(this.sb.toString());
+        if (localName.equals("description")) {
+           this.event.set_Description(this.sb.toString());
             return;
         }
-        if (localName.equals("customer")) {
-          //  this._job.set_customer(this.sb.toString());
+        if (localName.equals("link")) {
+           this.event.set_Link(this.sb.toString());
             return;
         }
-        if (localName.equals("address")) {
-           // this._job.set_address(this.sb.toString());
+        if (localName.equals("category")) {
+            this.event.set_Category(this.sb.toString());
             return;
         }
-        if (localName.equals("city")) {
-           // this._job.set_city(this.sb.toString());
+        if (localName.equals("location")) {
+            this.event.set_Location(this.sb.toString());
             return;
         }
-        if (localName.equals("state")) {
-            //this._job.set_state(this.sb.toString());
+        if (localName.equals("dateStart")) {
+            this.event.set_DateStart(this.sb.toString());
             return;
         }
-        if (localName.equals("zip")) {
-           // this._job.set_zip(this.sb.toString());
+        if (localName.equals("dateEnd")) {
+            this.event.set_DateEnd(this.sb.toString());
             return;
         }
-        if (localName.equals("product")) {
-           // this._job.set_product(this.sb.toString());
-            return;
-        }
-        if (localName.equals("producturl")) {
-            //this._job.set_producturl(this.sb.toString());
-            return;
-        }
-        if (localName.equals("comments")) {
-           // this._job.set_comments(this.sb.toString());
-            return;
-        }
+       
+       
 
     }
 	@Override
@@ -167,5 +152,13 @@ public class XmlHandler extends DefaultHandler{
 			Log.d("EventxmlHandler", ee.getStackTrace().toString());
 		}
 	}//end of try
+	
+	
+	 @Override
+	    public void characters(char ch[], int start, int length) {
+	        String theString = new String(ch, start, length);
+	        Log.d("Event XMLHandler", "characters[" + theString + "]");
+	        this.sb.append(theString);
+	    }
 
 }
